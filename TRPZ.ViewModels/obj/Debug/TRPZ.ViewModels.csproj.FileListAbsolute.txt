@@ -1,0 +1,17 @@
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZDataBase.mdf
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZDataBase_log.ldf
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZ.ViewModels.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZ.ViewModels.pdb
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZ.DAL.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\EntityFramework.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\TRPZ.DAL.pdb
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\EntityFramework.xml
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\obj\Debug\TRPZ.ViewModels.csprojResolveAssemblyReference.cache
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\obj\Debug\TRPZ.ViewModels.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\obj\Debug\TRPZ.ViewModels.pdb
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.Helpers.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.WebPages.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.Helpers.xml
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.WebPages.xml
+C:\Users\Щукин\documents\visual studio 2013\Projects\TRPZ.Views\TRPZ.ViewModels\bin\Debug\System.Web.WebPages.Deployment.xml

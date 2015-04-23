@@ -1,0 +1,124 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"      
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewModels="clr-namespace:TRPZ.ViewModels;assembly=TRPZ.ViewModels"
+    mc:Ignorable="d" x:Class="TRPZ.Views.Thin.MainWindow"
+        Title="Тонкий клиент" Height="474.378" Width="711.567"
+        DataContext="{DynamicResource MainWindowViewModelThin}" >
+    <Window.Resources>
+        <viewModels:MainWindowViewModelThin x:Key="MainWindowViewModelThin"/>
+    </Window.Resources>
+    <Grid>
+        <Label Height="30" Background="{Binding BackgroundColor}" VerticalAlignment="Bottom" ToolTip="Строка статуса"  Foreground="White" Content="{Binding StatusMessage}"/>
+        <StackPanel Orientation="Horizontal" Height="20" VerticalAlignment="Top">
+            <Button Content="Подключить/Обновить" Command="{Binding ConnectButtonCommand}" ToolTip="Осуществить попытку подключения"  Margin="10,0,0,0"/>
+            <Button Content="Помощь" HorizontalAlignment="Right" Margin="10,0,0,0" ToolTip="О программе" Click="Button_Click"/>
+        </StackPanel>
+        <Grid Margin="0,28,0,38">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="holdingsListView" ToolTip="Таблица холдингов" ItemsSource="{Binding Holdings}" Margin="0,0,294,205" SelectionMode="Single" ItemTemplate="{DynamicResource HoldingTemplate}">
+                <ListView.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn x:Name="aCCT_NMBColumn" Header="Ид" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Margin="6,-1,-6,-1" Text="{Binding ACCT_NMB, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="pUR_DATEColumn" Header="Дата покупки" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker Margin="-6,-1" SelectedDate="{Binding PUR_DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="pUR_PRICEColumn" Header="Цена покупки" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Margin="-6,-1" Text="{Binding PUR_PRICE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="sHARESColumn" Header="Доли" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Margin="-6,-1" Text="{Binding SHARES, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn x:Name="sYMBOLColumn" Header="Символ" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Margin="-6,-1" Text="{Binding SYMBOL, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <DataGrid x:Name="mastersDataGrid"  ToolTip="Мастер таблица" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding SelectedItem.Masters, ElementName=holdingsListView}" Margin="405,0,0,205" RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="bETAColumn" Binding="{Binding BETA}" Header="Бета" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="cO_NAMEColumn" Binding="{Binding CO_NAME}" Header="Со-имя" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="cUR_PRICEColumn" Binding="{Binding CUR_PRICE}" Header="Тек. цена" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="eXCHANGEColumn" Binding="{Binding EXCHANGE}" Header="Обмен" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="iNDUSTRYColumn" Binding="{Binding INDUSTRY}" Header="Индустрия" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="oUTLOOKColumn" Binding="{Binding OUTLOOK}" Header="Выход" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="p_E_RATIOColumn" Binding="{Binding P_E_RATIO}" Header="Рейтинг П.Е." Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="pRICE_CHGColumn" Binding="{Binding PRICE_CHG}" Header="Изменения цены" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="pROJ_GRTHColumn" Binding="{Binding PROJ_GRTH}" Header="Рост проекта" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="rANKColumn" Binding="{Binding RANK}" Header="Ранг" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="rATINGColumn" Binding="{Binding RATING}" Header="Рейтинг" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="rCMNDATIONColumn" Binding="{Binding RCMNDATION}" Header="Рекоммендация" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="rISKColumn" Binding="{Binding RISK}" Header="Риск" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="sAFETYColumn" Binding="{Binding SAFETY}" Header="Беззопастность" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="sYMBOlColumn1" Binding="{Binding SYMBOl}" Header="Символ 1" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="yRL_HIGHColumn" Binding="{Binding YRL_HIGH}" Header="Годовая выручка" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="yRL_LOWColumn" Binding="{Binding YRL_LOW}" Header="Годовые потери" Width="SizeToHeader"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="cLIENTSDataGrid" AutoGenerateColumns="False"  ToolTip="Таблица клиентов" EnableRowVirtualization="True" ItemsSource="{Binding SelectedItem.Clients, ElementName=holdingsListView}" Margin="0,205,0,0" RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="aCCT_NBRColumn" Binding="{Binding ACCT_NBR}" Header="Ид" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="aDDRESS_1Column" Binding="{Binding ADDRESS_1}" Header="Адрес" Width="SizeToHeader"/>
+                    <DataGridTemplateColumn x:Name="bIRTH_DATEColumn" Header="Дата рождения" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding BIRTH_DATE, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="cITYColumn" Binding="{Binding CITY}" Header="Город" Width="SizeToHeader"/>
+                    <DataGridTemplateColumn x:Name="dATE_OPENColumn" Header="Дата открытия" Width="SizeToHeader">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding DATE_OPEN, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="fIRST_NAMEColumn" Binding="{Binding FIRST_NAME}" Header="Имя" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="iNTERESTSColumn" Binding="{Binding INTERESTS}" Header="Интересы" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="lAST_NAMEColumn" Binding="{Binding LAST_NAME}" Header="Фамилия" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="oBJECTIVESColumn" Binding="{Binding OBJECTIVES}" Header="Цели" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="oCCUPATIONColumn" Binding="{Binding OCCUPATION}" Header="Гражданство" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="pICTUREColumn" Binding="{Binding PICTURE}" Header="Картинка" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="rISK_LEVELColumn" Binding="{Binding RISK_LEVEL}" Header="Уровень риска" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="sS_NUMBERColumn" Binding="{Binding SS_NUMBER}" Header="Номер СС" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="sTATEColumn" Binding="{Binding STATE}" Header="STATE" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="tELEPHONEColumn" Binding="{Binding TELEPHONE}" Header="Телефон" Width="SizeToHeader"/>
+                    <DataGridTextColumn x:Name="zIPColumn" Binding="{Binding ZIP}" Header="ЗИП" Width="SizeToHeader"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
