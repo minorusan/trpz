@@ -8,6 +8,7 @@
         DataContext="{DynamicResource MainWindowViewModelThin}" >
     <Window.Resources>
         <viewModels:MainWindowViewModelThin x:Key="MainWindowViewModelThin"/>
+        hjhkhkjhkj
     </Window.Resources>
     <Grid>
         <Label Height="30" Background="{Binding BackgroundColor}" VerticalAlignment="Bottom" ToolTip="Строка статуса"  Foreground="White" Content="{Binding StatusMessage}"/>
