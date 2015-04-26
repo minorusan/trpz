@@ -60,7 +60,8 @@ namespace TRPZ.ViewModels
         {
             get
             {
-                return this.holdings;
+		//ToDo: Fix a bug in Holdings getter
+		throw new InvalidOperationException();
             }
             set
             {
